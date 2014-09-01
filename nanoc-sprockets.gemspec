@@ -1,19 +1,27 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'nanoc/sprockets/version'
 
-Gem::Specification.new do |s|
-  s.name        = 'nanoc-sprockets'
-  s.version     = '0.0.2'
-  s.summary     = 'Use sprockets as a datasource for nanoc.'
-  s.description = 'Use sprockets as a datasource for nanoc.'
-  s.homepage    = 'https://github.com/stormz/nanoc-sprockets'
-  s.license     = 'MIT'
+Gem::Specification.new do |spec|
+  spec.name          = "nanoc-sprockets"
+  spec.version       = Nanoc::Sprockets::VERSION
+  spec.authors       = ["François de Metz", "Pablo Olmos de Aguilera C."]
+  spec.email         = ["francois@2metz.fr", "pablo@glatelier.org"]
+  spec.description   = "Provides :sprockets as a datasource for nanoc. A Ruby library for compiling and serving web assets."
+  spec.summary       = "Use sprockets as a datasource for nanoc."
+  spec.homepage      = "https://github.com/PaBLoX-CL/nanoc-sprockets-datasource"
+  spec.license       = "MIT"
 
-  s.authors     = ["François de Metz"]
-  s.email       = 'francois@2metz.fr'
+  spec.files         = `git ls-files -z`.split("\x0")
+  spec.test_files    = spec.files.grep(%r{^(spec)/})
+  spec.require_paths = ["lib"]
 
-  s.require_paths = ["lib"]
-  s.files       = `git ls-files`.split($\)
+  spec.add_dependency "nanoc",               ">= 3.6.7", "< 4.0.0"
+  spec.add_dependency "sprockets",           ">= 2.0"
+  spec.add_dependency "sprockets-helpers",   "~> 1.1.0"
 
-  s.add_dependency "sprockets", ">= 2.0.0"
-  s.add_dependency "sprockets-helpers", ">= 1.1.0"
+  spec.add_development_dependency  "rake",   "~> 10.0"
+  spec.add_development_dependency  "rspec",  "~> 3.0"
+  spec.add_development_dependency  "guard"
 end
