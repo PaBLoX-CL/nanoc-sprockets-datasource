@@ -1,0 +1,11 @@
+gem "awesome_print"
+gem "pry-byebug"
+gem "pry-doc"
+gem "pry-docmore"
+gem "pry-rescue"
+gem "pry-remote"
+gem "pry-stack_explorer"
+
+instance_eval(File.read(File.dirname(__FILE__) + '/Gemfile'))
+
+# vim: ft=ruby
