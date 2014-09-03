@@ -14,7 +14,7 @@ module Nanoc::DataSources
       @config = {
         path: 'assets',
         compile: [],
-        assets_additionnal_paths: []
+        assets_additional_paths: []
       }.merge(@config)
     end
 
@@ -42,7 +42,7 @@ module Nanoc::DataSources
       %w(javascripts images stylesheets fonts).each do |asset|
         env.append_path File.join(config[:path], asset)
       end
-      config[:assets_additionnal_paths].each do |path|
+      config[:assets_additional_paths].each do |path|
         env.append_path path
       end
       env.js_compressor  = config[:js_compressor].to_sym
