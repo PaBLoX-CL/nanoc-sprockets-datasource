@@ -63,4 +63,3 @@ module Nanoc::DataSources
     end
   end
 end
-include Sprockets::Helpers

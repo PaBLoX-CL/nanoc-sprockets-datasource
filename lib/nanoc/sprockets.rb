@@ -7,3 +7,4 @@ end
 
 require 'nanoc/sprockets/version'
 require 'nanoc/sprockets/datasource'
+require 'nanoc/sprockets/helper'
