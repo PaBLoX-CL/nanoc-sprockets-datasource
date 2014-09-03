@@ -88,7 +88,7 @@ end
 
 MIT
 
-[sprockets]: https://github.com/sstephenson/sprockets-minify-assets
+[sprockets]: https://github.com/sstephenson/sprockets#minify-assets
 [nanoc]: http://nanoc.ws/
 [sprockets-minify-assets]: https://github.com/sstephenson/sprockets#minifying-assets
 [sprockets-sass]: https://github.com/petebrowne/sprockets-sass/
