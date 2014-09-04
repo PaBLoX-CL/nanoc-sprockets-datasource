@@ -36,12 +36,12 @@ data_sources:
     js_compressor: uglifier
 ```
 
-* `items_root`: the default prefix for you assets identifier
+* `items_root`: the default prefix for you assets identifier (same function as the `prefix` option in `sprockets-helpers`)
 * `compile`: an array of js and css files to load as nanoc's items. Any other files are loaded automatically
 * `path`: the path to the assets
 * `css_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
 * `js_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
-* `assets_additional_paths`: an array of paths to be added to sprockets. Can be vendor/assets/javascript for example
+* `assets_additional_paths`: an array of paths to be added to sprockets. Can be `vendor/assets` for example (note that this gem automatically adds the subdirectories: `javascripts`, `stylesheets`, `images` and `fonts`)
 * `digest`: The assets path will have a digest. You should toggle it to false during development.
 * `assets_host`: Link to assets from a dedicated server.
 
