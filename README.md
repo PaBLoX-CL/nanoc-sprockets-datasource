@@ -84,9 +84,7 @@ end
 
 ## License
 
-(c) 2014 Stormz
-
-MIT
+`nanoc-sprockets` is released under the [MIT License](http://www.opensource.org/licenses/MIT). For more info, see the [license file](LICENSE).
 
 [sprockets]: https://github.com/sstephenson/sprockets#minify-assets
 [nanoc]: http://nanoc.ws/
