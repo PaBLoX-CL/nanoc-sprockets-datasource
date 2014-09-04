@@ -5,13 +5,13 @@ Use [sprockets][] as a datasource for [nanoc][].
 Features:
 
 * Load your assets as nanoc's items
-* Sprockets helpers *(javascript|image|stylesheet|font)_path* included
+* Sprockets helpers *(javascript|image|stylesheet|font_path)* included
 * Load and compile only the assets you want
 * Configurable paths
 
 ## Install
 
-Add *nanoc-sprockets* to you Gemfile.
+Add `nanoc-sprockets` to you Gemfile.
 
      gem 'nanoc-sprockets'
 
@@ -21,7 +21,7 @@ In default.rb, require nanoc-sprockets:
 
     require 'nanoc-sprockets'
 
-Add a new entry in your *nanoc.yaml*.
+Add a new entry in your `nanoc.yaml`.
 
 ```yaml
 data_sources:
@@ -36,16 +36,16 @@ data_sources:
     js_compressor: uglifier
 ```
 
-* items_root: the default prefix for you assets identifier
-* compile: an array of js and css files to load as nanoc's items. Any other files are loaded automatically
-* path: the path to the assets
-* css_compressor: See [sprockets minifying assets][sprockets-minify-assets]
-* js_compressor: See [sprockets minifying assets][sprockets-minify-assets]
-* assets_additional_paths: an array of paths to be added to sprockets. Can be vendor/assets/javascript for example
-* digest: The assets path will have a digest. You should toggle it to false during development.
-* assets_host: Link to assets from a dedicated server.
+* `items_root`: the default prefix for you assets identifier
+* `compile`: an array of js and css files to load as nanoc's items. Any other files are loaded automatically
+* `path`: the path to the assets
+* `css_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
+* `js_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
+* `assets_additional_paths`: an array of paths to be added to sprockets. Can be vendor/assets/javascript for example
+* `digest`: The assets path will have a digest. You should toggle it to false during development.
+* `assets_host`: Link to assets from a dedicated server.
 
-Add specific rules for assets in *Rules*:
+Add specific rules for assets in `Rules`:
 
 ```ruby
 compile '/assets/*/' do
@@ -63,17 +63,17 @@ If you plan to use sass, you should probably install the *[sprockets-sass][]* ge
 
 To link to any assets, use the helpers providers by [sprockets-helpers][].
 
-* image_path
-* font_path
-* stylesheet_path
-* javascript_path
-* asset_path
+* `image_path`
+* `font_path`
+* `stylesheet_path`
+* `javascript_path`
+* `asset_path`
 
 ### Enable digest
 
 By default, digest of assets is not enabled. It means that js/css/images files are not concatened and the filename is preversed. Useful for development.
 
-To enable digest, add to *lib/default.rb*:
+To enable digest, add to `lib/default.rb`:
 
 ```ruby
 Sprockets::Helpers.configure do |c|
