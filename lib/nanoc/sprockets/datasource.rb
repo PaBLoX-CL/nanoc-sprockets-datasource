@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require "nanoc"
 require "sprockets"
 require "sprockets-helpers"
 
@@ -45,8 +46,8 @@ module Nanoc::DataSources
       config[:assets_additional_paths].each do |path|
         env.append_path path
       end
-      env.js_compressor  = config[:js_compressor].to_sym
-      env.css_compressor = config[:css_compressor].to_sym
+      env.js_compressor  = config[:js_compressor].to_sym  if config[:js_compressor]
+      env.css_compressor = config[:css_compressor].to_sym if config[:css_compressor]
 
       # Configure Sprockets::Helpers
       Sprockets::Helpers.configure do |c|
