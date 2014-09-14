@@ -5,7 +5,7 @@ require "sprockets"
 require "sprockets-helpers"
 
 module Nanoc::DataSources
-  class SprocketsDataSource < Nanoc::DataSource
+  class Sprockets < Nanoc::DataSource
     identifier :sprockets
     LOOSE_ASSETS = lambda do |filename, path|
       path =~ /assets/ && !%w(.js .css).include?(File.extname(filename))
@@ -50,7 +50,7 @@ module Nanoc::DataSources
       env.css_compressor = config[:css_compressor].to_sym if config[:css_compressor]
 
       # Configure Sprockets::Helpers
-      Sprockets::Helpers.configure do |c|
+      ::Sprockets::Helpers.configure do |c|
         c.environment = env
         c.prefix      = config[:items_root]
         c.asset_host  = config[:asset_host] if config[:asset_host]
