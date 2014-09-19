@@ -41,8 +41,8 @@ data_sources:
 * `path`: the path to the assets
 * `css_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
 * `js_compressor`: See [sprockets minifying assets][sprockets-minify-assets]
-* `assets_additional_paths`: an array of paths to be added to sprockets. Can be `vendor/assets` for example (note that this gem automatically adds the subdirectories: `javascripts`, `stylesheets`, `images` and `fonts`)
-* `digest`: The assets path will have a digest. You should toggle it to false during development.
+* `assets_additional_paths`: an array of paths to be added to sprockets
+* `digest`: The assets path will have a digest. You should toggle it to false during development
 * `assets_host`: Link to assets from a dedicated server.
 
 Add specific rules for assets in `Rules`:
