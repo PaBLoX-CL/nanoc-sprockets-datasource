@@ -11,6 +11,7 @@ module Nanoc::DataSources
       path =~ /assets/ && !%w(.js .css).include?(File.extname(filename))
     end
 
+    # See {Nanoc::DataSource#up}
     def up
       @config = {
         path: 'assets',
@@ -19,17 +20,25 @@ module Nanoc::DataSources
       }.merge(@config)
     end
 
+    # See {Nanoc::DataSource#items}.
+    #
+    # These 3 files: `.bower.json` `bower.json` `component.json`, require
+    # special treatment because Sprockets use them to correctly bundle the
+    # assets included in each package.
     def items
       assets = environment.each_logical_path(*compiled_assets).to_a
+      assets.delete_if {|asset| %w( .bower.json bower.json component.json ).include? File.basename(asset) }
 
       assets.map do |bundle|
         asset = environment.find_asset(bundle)
-        is_binary = !!(asset.pathname && !@site.config[:text_extensions].include?(File.extname(asset.pathname)[1..-1]))
+        extension = File.extname(bundle)[1..-1]
+        is_binary = !!(asset.pathname && !@site.config[:text_extensions].include?(extension))
 
         content_of_filename = is_binary ? asset.pathname : asset.to_s
-        attributes = {filename: bundle, binary: is_binary, mtime: asset.mtime}
+        attributes = {filename: bundle, binary: is_binary, mtime: asset.mtime, extension: extension}
+        next unless (is_binary || environment.extensions.include?(File.extname(bundle)))
         Nanoc::Item.new(content_of_filename, attributes, bundle, attributes)
-      end
+      end.compact
     end
 
     protected
